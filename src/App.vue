@@ -33,11 +33,11 @@ mostrar_Pelicules();
 <style>
 @font-face {
   font-family: "StarWars";
-  src: url("./star_jedi/starjedi/Starjedi.ttf");
+  src: url("../star_jedi/starjedi/Starjedi.ttf");
 }
 
 @font-face {
   font-family: "StarWars2";
-  src: url("./star_jedi/starjedi/Starjhol.ttf");
+  src: url("../star_jedi/starjedi/Starjhol.ttf");
 }
 </style>
