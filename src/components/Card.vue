@@ -3,29 +3,34 @@
     <Loader v-if="!pelis.length" />
     <div v-else id="allFilms">
       <h2>All films</h2>
-      <article v-for="(pelicula, index) in pelis[0]" :key="pelicula">
+      <article v-for="(pelicula, index) in pelis" :key="pelicula">
         <h4>
-          {{ pelicula.title }}
+          {{ pelicula.properties.title }}
         </h4>
         <section id="firstOne">
           <figure>
-            <img :src="buildPath(photo_Url, index)" :alt="pelicula.title" />
+            <img
+              :src="buildPath(photo_Url, index)"
+              :alt="pelicula.properties.title"
+            />
           </figure>
-          <p>{{ pelicula.opening_crawl }}</p>
+          <p>{{ pelicula.properties.opening_crawl }}</p>
         </section>
         <section id="secondOne">
           <div id="directorYear">
-            <p>Director: {{ pelicula.director }}</p>
-            <p>Release Year: {{ pelicula.release_date.split("-")[0] }}</p>
+            <p>Director: {{ pelicula.properties.director }}</p>
+            <p>
+              Release Year: {{ pelicula.properties.release_date.split("-")[0] }}
+            </p>
           </div>
           <div id="stats">
             <h5>In this movie appears:</h5>
             <ul>
-              <li>{{ pelicula.characters.length }} characters</li>
-              <li>{{ pelicula.planets.length }} planets</li>
-              <li>{{ pelicula.starships.length }} spaceships</li>
-              <li>{{ pelicula.vehicles.length }} vehicles</li>
-              <li>{{ pelicula.species.length }} species</li>
+              <li>{{ pelicula.properties.characters.length }} characters</li>
+              <li>{{ pelicula.properties.planets.length }} planets</li>
+              <li>{{ pelicula.properties.starships.length }} spaceships</li>
+              <li>{{ pelicula.properties.vehicles.length }} vehicles</li>
+              <li>{{ pelicula.properties.species.length }} species</li>
             </ul>
           </div>
         </section>

@@ -9,25 +9,28 @@ import HeaderSwapi from "./components/HeaderSwapi.vue";
 import Card from "./components/Card.vue";
 import FooterSwapi from "./components/FooterSwapi.vue";
 
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 
 const pelicules = ref([]);
 
 /*----FUNCIÓ PER COMUNICAR AMB API I VEURE PELICULES----*/
 
-const api_Url = "https://swapi.dev/api/films/";
+const api_Url = "https://swapi.tech/api/films/";
 
 const mostrar_Pelicules = async () => {
   const response = await fetch(api_Url);
   const data = await response.json();
-  pelicules.value.push(data.results);
-
   if (!response.ok) {
     throw new Error(`fetch error! status: ${response.status}`);
   }
+  return data.result;
 };
 
-mostrar_Pelicules();
+onMounted(async () => {
+  mostrar_Pelicules().then((movies) => {
+    pelicules.value = movies;
+  });
+});
 </script>
 
 <style>
